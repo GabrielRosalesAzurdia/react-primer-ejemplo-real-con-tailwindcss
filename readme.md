@@ -68,3 +68,19 @@ del archivo.
 Otro consejo, esta combinación quita una línea de código entera.
 
 > ctrl + x 
+
+Un atajo para importar es colocar
+
+>imp
+
+Atajo para console.log()
+
+>clg
+
+Atajo para useState
+
+>useState y darle click a useStateSnipped
+
+Por defecto ya nos deja los cursores listos para alterar los nombres de las 
+2 variables y en la segunda ya tiene se tal inicio. Con `TAB` cambiamos
+entre las selecciones para poder colocar el valor inicial.

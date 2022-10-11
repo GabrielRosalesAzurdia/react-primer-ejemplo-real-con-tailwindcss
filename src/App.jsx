@@ -1,9 +1,11 @@
-function App(){
-  return <h1>
+import TaskList from "./TaskList";
 
-    
-
-  </h1>
+function App() {
+	return (
+		<div>
+			<TaskList />
+		</div>
+	);
 }
 
-export default App
+export default App;
