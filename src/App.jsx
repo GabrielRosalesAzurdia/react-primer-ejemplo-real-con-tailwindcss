@@ -1,8 +1,8 @@
 // Importamos los datos de tareas con un alias ya que de lo contrario causará un
 // conflicto con nombres
-import TaskList from "./TaskList";
-import Taskform from "./TaskForm";
-import { tasks as data } from "./tasks";
+import TaskList from "./components/TaskList";
+import Taskform from "./components/TaskForm";
+import { tasks as data } from "./data/tasks";
 import { useState, useEffect } from "react";
 
 function App() {
@@ -14,10 +14,10 @@ function App() {
 		setTasks(data);
 	}, []);
 
-	function createTask(taskTitle) {
+	function createTask(task) {
 		setTasks([
 			...tasks,
-			{ title: taskTitle, id: tasks.length, descripcion: "nueva tarea" },
+			{ title: task.title, id: tasks.length, description: task.description },
 		]);
 	}
 
