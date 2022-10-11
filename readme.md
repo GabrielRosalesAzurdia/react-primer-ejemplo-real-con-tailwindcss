@@ -84,3 +84,23 @@ Atajo para useState
 Por defecto ya nos deja los cursores listos para alterar los nombres de las 
 2 variables y en la segunda ya tiene se tal inicio. Con `TAB` cambiamos
 entre las selecciones para poder colocar el valor inicial.
+
+Otro consejo con sintaxis de arreglos, para añadir un elemento de un arreglo que 
+es una constante:
+
+> const a = [1,2,3]
+
+> [...a, 4]
+
+> me devuelve: [1,2,3,4] que es un nuevo arreglo sin alterar el inicial
+
+También para los diccionarios
+
+> const newTask = {
+
+>   title,   
+
+>}
+
+Crea un diccionario con una propiedad title y el valor será el contenido de la variable
+title asumiendo que exista la variable title.
