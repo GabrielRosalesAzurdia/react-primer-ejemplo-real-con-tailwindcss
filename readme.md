@@ -238,3 +238,30 @@ Podemos extraer y utilizar los valores que tiene:
 También puedo jalar valores estructurados:
 
 >const { deleteTask } = useContext(TaskContext);
+
+## Talwind Css https://tailwindcss.com/
+
+Es un framework de css para poder darle diseño a esta cosa que la verdad se mira 
+horrible XD. Comando para instalar:
+
+>npm install -D tailwindcss postcss autoprefixer
+
+Seguido de eso ejecutamos lo siguiente para inicializar tailwind:
+
+>npx tailwindcss init -p
+
+Luego seguímos las instrucciones alterando el tailwind.config y añadiendo valores
+al index.css que tendría que crearlo en este caso. El nombre debe de ser ese 
+index.css
+
+Y lo importo en el main.jsx
+
+Se recomienda usar una extensión de vs code para tailwind para ayudar con snippeds
+se llama:
+
+> taildwind css intellicense
+
+Tailwind al igual que bootstrap se mueve solo por clases
+
+## Deploy en Github Pages
+
