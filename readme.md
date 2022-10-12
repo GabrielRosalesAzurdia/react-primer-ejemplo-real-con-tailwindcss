@@ -137,3 +137,100 @@ o también usar una función anónima
 
 ## Create context
 
+Lo que hicimos anteriormente, de pasar una función como prop a un componente para 
+que este se lo pase a otro componente se le conoce como prop drilling, en aplicaciones
+muy grandes se vuelve insostenible. En este caso la razón por la que estamos haciendo
+esto es porque los estados useState están en el componente App y como necesitamos
+interactuar con este estado las funciones fueron cradas allí, para luego pasarlas
+a los componentes que las estarán usando. 
+
+Una mejor forma de hacer esto sería que un componente accesa directamente al estado
+en este caso que task card accesa directamente al estado o si el task list requiere
+al estado va directo a él o si el task form requiere un estado que valla directo a él.
+
+Para ello App ya no va a contener al estado sino que creamos un componente aparte
+que coitiene a todos, incluso a App y su nombre es contexto. Su tarea será almacenar
+el estado. La diferencia de usar esto es que React brinda una nueva forma de traer datos
+ya que todos están adentro todos pueden acceder.
+
+En react se le llama api context. Para ello creamos una carpeta en src y un nuevo archivo
+jsx. Aquí se crea un módulo sencillo pero que no retorna un div, lo que retorna es un
+elemento que permite englovar al resto. Colocamos un fragment y le decimos que aquí
+irán elementos children.
+
+Por medio de esta propiedad y como context englova a todo podemos colocar elementos que
+serán visibles para toda la página, y para demostrar dónde irá el restro colocamos:
+
+>{props.children}
+
+Dentro del fragment y abajo o arriba de los elementos constantes.
+
+Para meter elementos dentro de mi context lo tengo que importar:
+
+>import TaskContext from "../context/TaskContext";
+
+Y colocamos dentro a los elementos que irán dentro del contexto, esto en el return:
+
+> < TaskContext>
+
+> 	 < div>
+
+> 	 	...
+
+> 	 < / div>
+
+> < /TaskContext>
+
+Para poder craer un context correctamente importamos una función especial 
+de la librería de React:
+
+>import {createContext} from 'react'
+
+Y creamos un context en mayúsculas
+
+> const TaskContext = createContext()
+
+Para no confundirnos el nombre de nuestro módulo pasa a ser el mismo seguido de 
+la palabra provider
+
+> function TaskContextProvider(props) {
+
+Para en englove a todo esto lo importamos en el main.jsx
+
+> import {TaskContextProvider} from './context/TaskContext'
+
+Y encapsulo el app en él:
+
+>< TaskContextProvider>
+>   < App />
+>< /TaskContextProvider>
+
+Para tener valores dentro del context creamos variables dentro del componente
+
+> let x = 20
+
+Y se la damos al provider para que la pueda proveer:
+
+> < TaskContext.Provider value={x}>
+
+Ahora donde querramos utilizar ese contexto primero importamos la herramienta para 
+poder hacerlo:
+
+> import {useContext} from 'react'
+
+Y dentro del componente lo llamamos y trabajamos con él:
+
+    NOTA: EN REACT PUEDEN HABER VARIOS CONTEXTOS EN UNA SOLA APP ES POR ELLO QUE 
+    DEBEMOS PASARLE EL NOMBRE DEL CONTEXTO QUE ESTAMOS USANDO, EL NOMBRE DEL
+    CONTEXTO ES EL QUE DECLARAMOS EN UN CONSTANTE 
+
+>import {TaskContext} from '../context/TaskContext'
+
+Y lo setiamos, esto dentro del componente:
+
+>useContext(TaskContext)
+
+Podemos extraer y utilizar los valores que tiene:
+
+>const valor = useContext(TaskContext)
+>console.log(valor)
