@@ -1,5 +1,7 @@
 # Primer aplicación real creada en React con Vite
 
+GR - 2022
+
 Vite es una alternativa directa para create-react-app
 
 Comando para comenzar a crea con vite:
@@ -265,3 +267,61 @@ Tailwind al igual que bootstrap se mueve solo por clases
 
 ## Deploy en Github Pages
 
+Primero cuando terminamos el desarrollo corremos el  comando
+
+> npm run build
+
+Para construir la applicación para producción
+
+Github pages es un servicio gratuito para poder publicar documentación o 
+portafolios.
+
+Creamos un repo y metemos esto en el repositorio en la branch master.
+
+Para facilitar la configuración de Github pages utilizaremos un paquete de node
+que sirve para eso. Se llama gh-pages npm. Para instalarlo se usa el comando
+
+> npm i gh-pages
+
+luego de instalado en el package.json creamos un nuevo comando:
+
+>"scripts": {
+>  "dev": "vite",
+>  "build": "vite build",
+>  "preview": "vite preview",
+> "deploy" : "gh-pages -d dist"
+
+También tenemos que tener en cuenta la documentación de `VIT` de cómo hace 
+deply a githug pages.
+
+En vit.config.js se hace una configuración
+
+> export default defineConfig({
+>   plugins: [r eact()],
+>   base:"/react-primer-ejemplo-real-con-tailwindcss/"
+> })
+
+Siendo el contenido que está entre los slash el nombre del repositorio.
+
+Lo siguiente es crear un archivo llamado deploy.sh y en él copiamos todo el código
+que nos indica las instrucciones de vit. Cuidado con tener que alterar las últimas
+líneas con nombre de usuario y repositorio.
+
+Volvemos a correr 
+
+>npm run build
+
+Y ahora la prueba de fuego, corremos el comando
+
+>npm run deploy
+
+SI JALOOOOOOOOOOOOOOOOOOOO
+
+Ahora en el repo vamos a la configuración y buscamos el apartado de pages
+Esperamos unos momentos y ya debería salir el link para la página 
+
+>https://gabrielrosalesazurdia.github.io/react-primer-ejemplo-real-con-tailwindcss/
+
+LISTO!
+
+Terminado - 2 días
