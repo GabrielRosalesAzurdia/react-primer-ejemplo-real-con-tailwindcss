@@ -15,16 +15,29 @@ function App() {
 	}, []);
 
 	function createTask(task) {
+		// tomando la id la fecha para que sea única
+		var timestamp = new Date().getUTCMilliseconds();
 		setTasks([
 			...tasks,
-			{ title: task.title, id: tasks.length, description: task.description },
+			{ title: task.title, id: timestamp, description: task.description },
 		]);
+	}
+
+	function deleteTask(taskId) {
+		setTasks(() => {
+			let filtered = tasks.filter((value) => {
+				// Cabe destacar que este return no es el return de la función
+				// deleteTask sino que del filter
+				return value.id !== taskId;
+			});
+			return filtered;
+		});
 	}
 
 	return (
 		<>
 			<Taskform createTask={createTask} />
-			<TaskList tasks={tasks} />
+			<TaskList deleteTask={deleteTask} tasks={tasks} />
 		</>
 	);
 }

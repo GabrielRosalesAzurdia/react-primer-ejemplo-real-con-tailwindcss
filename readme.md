@@ -1,4 +1,4 @@
-Primer aplicación real creada en React con Vite
+# Primer aplicación real creada en React con Vite
 
 Vite es una alternativa directa para create-react-app
 
@@ -104,3 +104,36 @@ También para los diccionarios
 
 Crea un diccionario con una propiedad title y el valor será el contenido de la variable
 title asumiendo que exista la variable title.
+
+NOTA MUY IMPORTANTE
+
+Cuando se esté pasando una función desde un componente superior como prop a otor
+no se coloca directamente sobre el elemento, por ejemplo: 
+
+> < button onClick={funcionnombre()}> x </ button>
+
+Sino que primero creamos un manejador de función
+
+>const handleClick = ()=>{
+
+>	x()
+
+>}
+
+> < button onClick={handleClick}>ok</ button>
+
+Con react no vamos a estar alterando el array original, lo que vamos a estar haciendo es
+devolver un array modificado con los cambios que nosotros querramos ya sea un array
+con un elemento de más o un elemento menos.
+
+Otra manera para no utilizar un handlex es no colocar paréntesis al momento de colocar
+a función, automáticamente nos pasará el event
+
+> < button onClick={funcionnombre}> x </ button>
+
+o también usar una función anónima
+
+> < button onClick={()=>{funcionnombre(parametro)} }> x </ button>
+
+## Create context
+
