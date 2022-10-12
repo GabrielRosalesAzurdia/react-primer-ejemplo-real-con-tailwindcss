@@ -234,3 +234,7 @@ Podemos extraer y utilizar los valores que tiene:
 
 >const valor = useContext(TaskContext)
 >console.log(valor)
+
+También puedo jalar valores estructurados:
+
+>const { deleteTask } = useContext(TaskContext);
